@@ -1,8 +1,12 @@
 # Getting Started
 
-We have 2 GitHub repositories for Skylab V2:
+### Repositories:
 - [Skylab Frontend](https://github.com/orbital-skylab/skylab-frontend)
 - [Skylab Backend](https://github.com/orbital-skylab/skylab-backend)
+
+### Important Reads:
+- [Git Workflow](https://github.com/orbital-skylab/skylab-frontend/wiki/Git-Workflow)
+- [Issue Tracking](https://github.com/orbital-skylab/skylab-frontend/wiki/Issue-Tracking)
 
 ## Initial Setup
 1. Install the [LTS/Fermium version of node.js](https://nodejs.org/download/release/latest-fermium/) on your computer.
