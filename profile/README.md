@@ -40,14 +40,14 @@
 |Term|What It Refers To|
 |-|-|
 |Cohort|The Orbital program runs once per academic year, during the summmer break from May to August. Each run is referred to as a cohort.|
-|User|Someone who is able to sign in to the Skylab platform with their email and password. Users can have up to one role per cohort.|
+|User|Someone who is able to sign in to the Skylab platform with their email and password.|
 |Role|Student, Adviser, Mentor or Administrator. The role a user has during a particular cohort will determine what pages they can access and what actions they can carry out in that time period. For example, a particular user could be a student in the 2020 cohort then an adviser in the 2021 cohort.|
-|Team|All orbitees are split into teams, which are groups of students (typically 2 students per team).|
+|Team|Groups of students (typically 2 students per team).|
 |Project|Refers to the software project undertaken by a team for Orbital|
 |Milestone|A checkpoint for students to submit their preliminary work and documentation. Evaluations also happen after each milestone. There are typically 5 milestones per Orbital cohort (Liftoff, Milestone 1, Milestone 2, Milestone 3 and Splashdown).|
 |Deadline|A general term for set of questions that requires a submission by a specified due date.|
 |Submission|A general term for a set of answers to a deadline.|
 |Evaluation|A specific type of deadline where teams and advisers review other teams' projects. **Note:** evaluations are team-level submissions, not individual, so only 1 student from each team is required to submit each evaluation.|
-|Evaluation Relationship|A unidirectional relationship which determine who evaluates what. For example, there could be an evaluation relationship whereby Team A evaluates Team B's project, but it is not necessary for there to also be an evaluation relationship whereby Team B evaluates Team A's project. Typically, Artemis teams will be assigned more projects to review.|
+|Evaluation Relationship|A unidirectional relationship which determines who evaluates what. For example, there could be an evaluation relationship whereby Team A evaluates Team B's project, but it is not necessary for there to also be an evaluation relationship whereby Team B evaluates Team A's project. Typically, Artemis teams will be assigned more projects to review.|
 
 
