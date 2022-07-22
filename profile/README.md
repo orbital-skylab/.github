@@ -38,7 +38,7 @@
 
 |Term|What It Refers To|
 |-|-|
-|Cohort|The Orbital program runs once per academic year, from May to Auguest. Each run is referred to as a cohort.|
+|Cohort|The Orbital program runs once per academic year, during the summmer break from May to August. Each run is referred to as a cohort.|
 |User|Someone who is able to sign in to the Skylab platform with their email and password. Users can have up to one role per cohort.|
 |Role|Student, Adviser, Mentor or Administrator. The role a user has during a particular cohort will determine what pages they can access and what actions they can carry out in that time period. For example, a particular user could be a student in the 2020 cohort then an adviser in the 2021 cohort.|
 |Team|All orbitees are split into teams, which are groups of students (typically 2 students per team).|
