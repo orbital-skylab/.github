@@ -8,6 +8,7 @@
 - [Git Workflow](https://github.com/orbital-skylab/skylab-frontend/wiki/Git-Workflow)
 - [Issue Tracking](https://github.com/orbital-skylab/skylab-frontend/wiki/Issue-Tracking)
 - [Style Guide](https://github.com/orbital-skylab/skylab-frontend/wiki/Style-Guide)
+- [Code Review Rubrics](https://github.com/orbital-skylab/skylab-frontend/wiki/Code-Review-Rubrics)
 
 ## Initial Setup
 1. Install the [LTS/Fermium version of node.js](https://nodejs.org/download/release/latest-fermium/) on your computer.
