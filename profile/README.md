@@ -16,8 +16,8 @@ We have 2 GitHub repositories for Skylab V2:
     NEXT_PUBLIC_BASE_DEV_API_URL=http://localhost:4000/api
     ```
 5. Run the frontend development server with the command `npm run dev`. It can be accessed at `localhost:3000`.
-6. Clone the backend repository into a directory of your choice, ideally the same directory as the frontend repository for simplicity, and install dependencies.
-    - `cd ..`
+6. Open another terminal instance, clone the backend repository into a directory of your choice and install dependencies.
+    - `cd <path to directory of choice>`
     - `git clone https://github.com/orbital-skylab/skylab-backend`
     - `cd skylab-backend`
     - `npm install`
