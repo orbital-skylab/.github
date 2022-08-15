@@ -35,6 +35,44 @@
     ```
 8. Run the backend development server with the command `npm run dev`. It can be accessed at `localhost:4000`.
 
+## Deployment on SoC VM
+
+The front and back end of Skylab V2 are deployed and running on SoC VM. When changes are made to either repository, the corresponding applications on the VM will need to be restarted.
+
+Please contact any of the Skylab V2 developers for the hostname and password of the VM, then ssh into it via `ssh <hostname>` 
+
+Both applications are hosted via [pm2](https://pm2.keymetrics.io/). The frontend application is named `skylab-frontend` and the backend application is named `skylab-backend`
+
+### Frontend
+
+1. `cd Desktop/skylab-frontend` to move to the frontend repository
+2. `git pull` to update the repository with the latest changes
+3. `npm install` to update dependencies
+4. `npm run build` to rebuild the static files for production
+5. `pm2 restart skylab-frontend` to restart the frontend on production
+
+### Backend
+
+1. `cd Desktop/skylab-backend` to move to the frontend repository
+2. `git pull` to update the repository with the latest changes
+3. `npm install` to update dependencies
+5. `pm2 restart skylab-frontend` to restart the frontend on production
+
+### Other useful information
+
+- The frontend and backend applications were started using the following steps
+    - Frontend
+        - ssh into VM
+        - `cd Desktop/skylab-frontend`
+        - `npm run build`
+        - `pm2 start npm --name skylab-frontend -- run start`
+    - Backend
+        - ssh into VM
+        - `cd Desktop/skylab-backend`
+        - `pm2 start npm --name skylab-frontend -- run start`
+- The applications can be stopped, reloaded or even deleted via `pm2 <stop/reload/delete> <skylab-frontend/skylab-backend>`
+    - eg; `pm2 reload skylab-backend`
+
 ## Glossary
 
 |Term|What It Refers To|
