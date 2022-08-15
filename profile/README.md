@@ -11,7 +11,7 @@
 - [Code Review Rubrics](https://github.com/orbital-skylab/skylab-frontend/wiki/Code-Review-Rubrics)
 - [Contribution Guide](https://github.com/orbital-skylab/.github/blob/main/CONTRIBUTING.md)
 
-## Initial Setup
+## Initial Setup for Local Development
 1. Install the [LTS/Fermium version of node.js](https://nodejs.org/download/release/latest-fermium/) on your computer.
 2. Open your terminal, clone the frontend repository into a directory of your choice and install dependencies.
     - `cd <path to directory of choice>`
