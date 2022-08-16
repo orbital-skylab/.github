@@ -39,9 +39,17 @@
 
 The front and back end of Skylab V2 are deployed and running on SoC VM. When changes are made to either repository, the corresponding applications on the VM will need to be restarted.
 
-Please contact any of the Skylab V2 developers for the hostname and password of the VM, then ssh into it via `ssh <hostname>` 
+Please contact prof for the hostname and password of the VM, then ssh into it via `ssh <hostname>` 
 
-Both applications are hosted via [pm2](https://pm2.keymetrics.io/). The frontend application is named `skylab-frontend` and the backend application is named `skylab-backend`
+Both applications are hosted via [pm2](https://pm2.keymetrics.io/). The frontend application is named `skylab-frontend` and the backend application is named `skylab-frontend`
+
+`skylab-frontend` is a standard Next.js application
+
+`skylab-backend` is an Express.js server supported by Prisma ORM
+- A local instance of psql running on port 5432 is being used to host the database for Prisma
+- The database can be managed directly by connecting to psql via the command `sudo -u postgres psql`, then, connecting to the production database via the command `\c skylab`
+- There is also a development database and shadow development database called `skykab_dev` and `skylab_dev_shadow` respectively, which can be used if necessary. The development database should contain mock data seeded via [faker.js](https://fakerjs.dev/)
+- More information can be found in the `.env` file in the `skylab-backend` repository
 
 ### Frontend
 
@@ -70,8 +78,9 @@ Both applications are hosted via [pm2](https://pm2.keymetrics.io/). The frontend
         - ssh into VM
         - `cd Desktop/skylab-backend`
         - `pm2 start npm --name skylab-frontend -- run start`
-- The applications can be stopped, reloaded or even deleted via `pm2 <stop/reload/delete> <skylab-frontend/skylab-backend>`
+- The applications can be stopped/reloaded or even deleted via `pm2 <stop/reload/delete> <skylab-frontend/skylab-backend>`
     - eg; `pm2 reload skylab-backend`
+- The status of both applications can be monitored via `pm2 monit`
 
 ## Glossary
 
