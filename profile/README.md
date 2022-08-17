@@ -64,7 +64,7 @@ Both applications are hosted via [pm2](https://pm2.keymetrics.io/). The frontend
 1. `cd Desktop/skylab-backend` to move to the frontend repository
 2. `git pull` to update the repository with the latest changes
 3. `npm install` to update dependencies
-5. `pm2 restart skylab-frontend` to restart the frontend on production
+5. `pm2 restart skylab-backend` to restart the frontend on production
 
 ### Other useful information
 
@@ -77,7 +77,7 @@ Both applications are hosted via [pm2](https://pm2.keymetrics.io/). The frontend
     - Backend
         - ssh into VM
         - `cd Desktop/skylab-backend`
-        - `pm2 start npm --name skylab-frontend -- run start`
+        - `pm2 start npm --name skylab-backend -- run start`
 - The applications can be stopped/reloaded or even deleted via `pm2 <stop/reload/delete> <skylab-frontend/skylab-backend>`
     - eg; `pm2 reload skylab-backend`
 - The status of both applications can be monitored via `pm2 monit`
