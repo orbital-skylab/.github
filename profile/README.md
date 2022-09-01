@@ -39,6 +39,7 @@
     ```
     DATABASE_URL=postgresql://postgres:<your_postgres_super_user_password>@localhost:5432/skylab
     SHADOW_DATABASE_URL=postgresql://postgres:<your_postgres_super_user_password>@localhost:5432/skylab_shadow
+    JWT_SECRET=<any_value>
     
     ```
     - If your postgres super user account is not password protected, use `...postgres@localhost...` instead.
