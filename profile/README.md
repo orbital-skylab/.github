@@ -149,6 +149,8 @@ You can make use of another postgres user if you choose to do so in place of the
 
 If your postgres super user account is not password protected, use `...postgres@localhost...` instead of `...postgres:<password>@localhost...`.
 
+`JWT_SECRET` is used for user authentication and authorization via JSON web tokens. These tokens are cryptographically signed and contain verifiable user information in a standard format which we use to verify the identity of an entity making a request to the server. Unauthenticated and unauthorized users will be rejected with HTTP error `401` or `403` respectively.
+
 #### 4. Run Migration
 
 Run a migration to create the necessary tables in the development databases.
@@ -170,7 +172,7 @@ cd <path_to_skylab_backend>
 npm run dev
 ```
 
-The frontend application can be accessed at `localhost:3000` while the backend application can be accessed at `localhost:4000`
+The frontend application can be accessed at `localhost:3000` while the backend application can be accessed at `localhost:4000`.
 
 
 ## Seeding Mock Data
@@ -181,7 +183,8 @@ In the mean time, mock data can be seeded into the development databases by maki
 
 ## Using Admin Account
 
-After seeding the mock data, an admin account with the following credentials will be available for you to use
+After seeding the mock data, an admin account with the following credentials will be available for you to use.
+
 ```
 email: admin@skylab.com
 password: Password123
@@ -191,7 +194,7 @@ If you wish to create another admin account, you will need to make a `POST` requ
 
 ## Directly Interacting with Database
 
-After migration is compelted, there are two ways to directly view and interact with data in the skylab database
+After migration is compelted, there are two ways to directly view and interact with data in the skylab database.
 
 ### PSQL
 1. Connect to psql as the postgres super user via the command `psql -U postgres`**(Windows)** or `sudo -u postgres psql`**(macOS)** and key in your postgres super user password if applicable.
