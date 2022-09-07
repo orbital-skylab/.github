@@ -1,5 +1,24 @@
 # Getting Started
 
+### Tech stack and platforms:
+
+###### Frontend
+- [Next.js](https://nextjs.org/)
+- [Material UI](https://mui.com/)
+
+###### Backend
+- [Express](https://expressjs.com/)
+- [Prisma with Postgresql](https://www.prisma.io/) 
+
+###### Testing
+- [Jest](https://jestjs.io/)
+- [Cypress](https://www.cypress.io/)
+- [Faker.js](https://fakerjs.dev/)
+
+###### Deployment
+- [Nginx](https://www.nginx.com/)
+- [Pm2](https://pm2.keymetrics.io/)
+
 ### Repositories:
 - [Skylab Frontend](https://github.com/orbital-skylab/skylab-frontend)
 - [Skylab Backend](https://github.com/orbital-skylab/skylab-backend)
@@ -12,42 +31,131 @@
 - [Contribution Guide](https://github.com/orbital-skylab/.github/blob/main/CONTRIBUTING.md)
 
 ## Prerequisites
-1. [LTS/Fermium version of node.js](https://nodejs.org/download/release/latest-fermium/)
-2. [Postgresql version 14.X](https://www.enterprisedb.com/downloads/postgres-postgresql-downloads)
+1. Install [Node.js (version LTS Fermium)](https://nodejs.org/download/)
+2. Install [Postgresql (version 14)](https://www.enterprisedb.com/downloads/postgres-postgresql-downloads)
 
 ## Initial Setup for Local Development
-1. Open your terminal, clone the frontend repository into a directory of your choice and install dependencies.
-    - `cd <path to directory of choice>`
-    - `git clone https://github.com/orbital-skylab/skylab-frontend`
-    - `cd skylab-frontend`
-    - `npm install`
-2. Create a new `.env.local` file in the project root and add the following contents into it:
-    ```
-    NEXT_PUBLIC_BASE_DEV_API_URL=http://localhost:4000/api
-    ```
-3. Run the frontend development server with the command `npm run dev`. It can be accessed at `localhost:3000`.
-4. Open another terminal instance and connect to psql as the postgres super user via the command `psql -U postgres` and key in your postgres super user password if applicable.
-5. Create two new databases for skylab development.
-    -  `CREATE DATABASE skylab;`
-    -  `CREATE DATABASE skylab_shadow;`
-6. Open another terminal instance, clone the backend repository into a directory of your choice and install dependencies.
-    - `cd <path to directory of choice>`
-    - `git clone https://github.com/orbital-skylab/skylab-backend`
-    - `cd skylab-backend`
-    - `npm install`
-7. Create a new `.env.local` file in the project root and add the following contents into it:
-    ```
-    DATABASE_URL=postgresql://postgres:<your_postgres_super_user_password>@localhost:5432/skylab
-    SHADOW_DATABASE_URL=postgresql://postgres:<your_postgres_super_user_password>@localhost:5432/skylab_shadow
-    JWT_SECRET=<any_value>
-    
-    ```
-    - If your postgres super user account is not password protected, use `...postgres@localhost...` instead.
-    - You can also use a different user apart from the postgres super user, just ensure that this user has all permissions for the `skylab` and `skylab_shadow` databases.
-8. Run a migration to create the necessary tables in the development databases.
-    - `npx prisma generate`
-    - `npx prisma migrate dev`
-9. Run the backend development server with the command `npm run dev`. It can be accessed at `localhost:4000`.
+
+### Frontend
+
+#### 1. Clone Git Repository
+
+Open your terminal and clone the frontend repository into a directory of your choice.
+
+```
+cd <path to directory of choice>
+git clone https://github.com/orbital-skylab/skylab-frontend
+```
+
+#### 2. Install Dependencies
+
+Ensure that you have installed and are using the **LTS Fermium** version of Node.js. If you have a different version of Node.js installed, you can make use of nvm for [windows](https://github.com/coreybutler/nvm-windows) or [macOS/unix/WSL](https://github.com/nvm-sh/nvm) to change it to LTS Fermium.
+
+```
+cd skylab-frontend
+npm install
+```
+
+#### 3. Set up .env.local File
+
+We have a `.env.local` file in the root of the `skylab frontend` repository to contain project secrets. If you wish to add more secrets, ensure to prefix the name of the secret variable with `NEXT_PUBLIC_` for it to be exposed to the browser as described [here](https://nextjs.org/docs/basic-features/environment-variables).
+
+```
+touch .env.local
+echo NEXT_PUBLIC_BASE_DEV_API_URL="http://localhost:4000/api" >> .env.local
+```
+
+#### 4. Run Application
+
+Boot up the frontend application in development environment and access it at `localhost:3000`.
+
+```
+npm run dev
+```
+
+### Postgres Database
+
+#### 1. Connect to psql
+
+Ensure that you have psql installed. Open your terminal and connect to psql as the super user. You will have to key in your password if you have one.
+```
+psql -U postgres
+```
+
+#### 2. Create Development Databases
+
+We will be creating and using a new database for development.
+
+```
+CREATE DATABASE skylab;
+```
+
+### Backend
+
+#### 1. Clone the Repository
+
+Open your terminal and clone the backend repository into a directory of your choice.
+
+```
+cd <path to directory of choice>
+git clone https://github.com/orbital-skylab/skylab-backend
+```
+
+#### 2. Install Dependencies
+
+Ensure that you have installed and are using the **LTS Fermium** version of Node.js. If you have a different version of Node.js installed, you can make use of nvm for [windows](https://github.com/coreybutler/nvm-windows) or [macOS/unix/WSL](https://github.com/nvm-sh/nvm) to change it to LTS Fermium.
+
+```
+cd skylab-backend
+npm install
+```
+
+#### 3. Set up .env File
+
+We have a `.env` file in the root of the `skylab backend` repository to contain project secrets. Ensure to replace all the values encapsulated in angle brackets: `<replace_these_values>`.
+
+```
+touch .env
+echo DATABASE_URL="postgresql://postgres:<your_postgres_super_user_password>@localhost:5432/skylab" >> .env 
+echo JWT_SECRET="<any_value>" >> .env
+```
+
+If your postgres super user account is not password protected, use `...postgres@localhost...` instead.
+
+You can also use a different user apart from the postgres super user, just ensure that this user has all permissions for the `skylab` and `skylab_shadow` databases.
+
+#### 4. Run Migration
+
+Run a migration to create the necessary tables in the development databases.
+
+```
+npx prisma generate
+npx prisma migrate dev
+```
+
+#### 4. Run Application
+
+Boot up the backend application in development environment and access it at `localhost:4000`.
+
+```
+npm run dev
+```
+
+##### 5. Seed Mock Data
+
+We are currently trying to resolve some issues with the Prisma seeding function. 
+
+In the mean time, mock data can be seeded into the development databases by making a `POST` request using [Postman Desktop Application](https://www.postman.com/) to `localhost:4000/api/seed` while the backend application is running. No request body is required, and the seeding will take a few minutes to complete.
+
+## Using Admin Account
+
+After seeding the mock data, an admin account with the following credentials will be available for you to use
+```
+email: admin@skylab.com
+password: Password123
+```
+
+If you wish to create another admin account, you will need to make a `POST` request while the backend application is running as outlined [here](https://github.com/orbital-skylab/skylab-backend/wiki/Administrators-Endpoints#create-a-new-account-with-administrator-role).
 
 ## Directly Interacting with Database
 
@@ -124,5 +232,3 @@ Both applications are hosted via [pm2](https://pm2.keymetrics.io/). The frontend
 |Submission|A general term for a set of answers to a deadline.|
 |Evaluation|A specific type of deadline where teams and advisers review other teams' projects. **Note:** evaluations are team-level submissions, not individual, so only 1 student from each team is required to submit each evaluation.|
 |Evaluation Relationship|A unidirectional relationship which determines who evaluates what. For example, there could be an evaluation relationship whereby Team A evaluates Team B's project, but it is not necessary for there to also be an evaluation relationship whereby Team B evaluates Team A's project. Typically, Artemis teams will be assigned more projects to review.|
-
-
