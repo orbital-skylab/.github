@@ -101,7 +101,7 @@ At the bottom of this menu, you should see an `Environmental Variables...` butto
 
 In the bottom half of this menu, under **System Variables**, Select `Path` then click on the `Edit...` button below it to bring up the **Edit Environmental Variable** menu.
 
-![PATH](/profile/screenshots/path.jpg)
+![PATH](/profile/screenshots/system_variables.jpg)
 
 Click on the `New` button at the top right of this menu then paste the **address to the psql bin folder** that we copied earlier into the new input highlighted in blue.
 
