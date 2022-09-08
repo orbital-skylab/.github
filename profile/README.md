@@ -33,6 +33,7 @@
 ## Prerequisites
 1. Install [Node.js (version LTS Fermium)](https://nodejs.org/download/)
 2. Install [Postgresql (version 14)](https://www.enterprisedb.com/downloads/postgres-postgresql-downloads)
+3. Install [Postman Desktop Application](https://www.postman.com/downloads/)
 
 ## Initial Setup for Local Development
 
@@ -49,7 +50,7 @@ git clone https://github.com/orbital-skylab/skylab-frontend
 
 #### 2. Install Dependencies
 
-Ensure that you have installed and are using the **LTS Fermium** version of Node.js. If you have a different version of Node.js installed, you can make use of nvm for [windows](https://github.com/coreybutler/nvm-windows) or [macOS/unix/WSL](https://github.com/nvm-sh/nvm) to change it to LTS Fermium.
+Ensure that you have installed and are using the [**LTS Fermium**](https://nodejs.org/download/) version of Node.js. If you have a different version of Node.js installed, you can make use of nvm for [windows](https://github.com/coreybutler/nvm-windows) or [macOS/unix/WSL](https://github.com/nvm-sh/nvm) to change it to LTS Fermium.
 
 ```
 cd skylab-frontend
@@ -126,7 +127,7 @@ git clone https://github.com/orbital-skylab/skylab-backend
 
 #### 2. Install Dependencies
 
-Ensure that you have installed and are using the **LTS Fermium** version of Node.js. If you have a different version of Node.js installed, you can make use of nvm for [windows](https://github.com/coreybutler/nvm-windows) or [macOS/unix/WSL](https://github.com/nvm-sh/nvm) to change it to LTS Fermium.
+Ensure that you have installed and are using the [**LTS Fermium**](https://nodejs.org/download/) version of Node.js. If you have a different version of Node.js installed, you can make use of nvm for [windows](https://github.com/coreybutler/nvm-windows) or [macOS/unix/WSL](https://github.com/nvm-sh/nvm) to change it to LTS Fermium.
 
 ```
 cd skylab-backend
@@ -179,7 +180,7 @@ The frontend application can be accessed at `localhost:3000` while the backend a
 
 We are currently trying to resolve some issues with the Prisma seeding function. 
 
-In the mean time, mock data can be seeded into the development databases by making a `POST` request using [Postman Desktop Application](https://www.postman.com/) to `localhost:4000/api/seed` while the backend application is running. No request body is required, and the seeding will take a few minutes to complete.
+In the mean time, mock data can be seeded into the development databases by making a `POST` request using [Postman Desktop Application](https://www.postman.com/downloads/) to `localhost:4000/api/seed` while the backend application is running. No request body is required, and the seeding will take a few minutes to complete.
 
 ## Using Admin Account
 
