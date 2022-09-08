@@ -93,11 +93,19 @@ Next, use the shortcut `Windows Key` + `s` to bring up the Windows search menu, 
 
 You should see the option to `Edit the system environmental variables` under **Control Panel** pop up in the search results. Click on it to bring up the **System Properties** menu.
 
+![Search](/profile/screenshots/search.jpg)
+
 At the bottom of this menu, you should see an `Environmental Variables...` button. Click on it to bring up the **Environmental Variables** menu.
+
+![System Properties](/profile/screenshots/system_properties.jpg)
 
 In the bottom half of this menu, under **System Variables**, Select `Path` then click on the `Edit...` button below it to bring up the **Edit Environmental Variable** menu.
 
+![PATH](/profile/screenshots/path.jpg)
+
 Click on the `New` button at the top right of this menu then paste the **address to the psql bin folder** that we copied earlier into the new input highlighted in blue.
+
+![Add](/profile/screenshots/new.jpg)
 
 Once completed, click on the `OK` button at the bottom of this menu, then restart your terminal and/or code editor for the change to the system environmental variables to take effect. If the changes are still not recognized, you can restart your computer.
 
