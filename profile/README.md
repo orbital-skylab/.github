@@ -33,6 +33,7 @@
 ## Prerequisites
 1. Install [Node.js (version LTS Fermium)](https://nodejs.org/download/)
 2. Install [Postgresql (version 14)](https://www.enterprisedb.com/downloads/postgres-postgresql-downloads)
+3. Install [Postman Desktop App](https://www.postman.com/)
 
 ## Initial Setup for Local Development
 
@@ -49,7 +50,7 @@ git clone https://github.com/orbital-skylab/skylab-frontend
 
 #### 2. Install Dependencies
 
-Ensure that you have installed and are using the **LTS Fermium** version of Node.js. If you have a different version of Node.js installed, you can make use of nvm for [windows](https://github.com/coreybutler/nvm-windows) or [macOS/unix/WSL](https://github.com/nvm-sh/nvm) to change it to LTS Fermium.
+Ensure that you have installed and are using the **LTS Fermium** version of Node.js. If you have a different version of Node.js installed, you can make use of nvm for [Windows](https://github.com/coreybutler/nvm-windows) or [macOS/unix/WSL](https://github.com/nvm-sh/nvm) to change it to LTS Fermium.
 
 ```
 cd skylab-frontend
@@ -67,9 +68,40 @@ echo NEXT_PUBLIC_BASE_DEV_API_URL="http://localhost:4000/api" >> .env.local
 
 ### Postgres Database
 
-#### 1. Connect to psql
+#### 1. Install psql
 
-Ensure that you have version 14.X of [Postgresql](https://www.enterprisedb.com/downloads/postgres-postgresql-downloads) installed.
+The download archive for psql version 14.X can be found [here](https://www.enterprisedb.com/downloads/postgres-postgresql-downloads).
+
+pgAdmin, which is a GUI for Postgresql, will not be necessary but you can choose to install it if you want to use it.
+
+If you are using **Windows**, you can follow [this](https://www.enterprisedb.com/docs/supported-open-source/postgresql/installer/02_installing_postgresql_with_the_graphical_installation_wizard/01_invoking_the_graphical_installer/) installation guide. Otherwise, the installation should be straightforward for other platforms.
+
+#### 2. **(Windows)** Add psql to PATH
+
+In order to find out where psql was installed on your computer, you can open **command prompt** and key in `where psql`. This command will print out the path to your installed psql, which should by default look similar to this:
+```
+C:\Program Files\PostgreSQL\14\bin\psql.exe
+```
+
+Copy this address **excluding** `\psql.exe`. In other words, copy the address of the bin folder. For the above example, this is what should be copied:
+
+```
+C:\Program Files\PostgreSQL\14\bin
+```
+
+Next, use the shortcut `Windows Key` + `s` to bring up the Windows search menu, then key in the word **system**
+
+You should see the option to `Edit the system environmental variables` under **Control Panel** pop up in the search results. Click on it to bring up the **System Properties** menu.
+
+At the bottom of this menu, you should see an `Environmental Variables...` button. Click on it to bring up the **Environmental Variables** menu.
+
+In the bottom half of this menu, under **System Variables**, Select `Path` then click on the `Edit...` button below it to bring up the **Edit Environmental Variable** menu.
+
+Click on the `New` button at the top right of this menu then paste the **address to the psql bin folder** that we copied earlier into the new input highlighted in blue.
+
+Once completed, click on the `OK` button at the bottom of this menu, then restart your terminal and/or code editor for the change to the system environmental variables to take effect. If the changes are still not recognized, you can restart your computer.
+
+#### 3. Connect to psql
 
 Postgresql comes with a default super user named `postgres`. We will be connecting to the psql interactive terminal using this super user.
 
@@ -126,7 +158,7 @@ git clone https://github.com/orbital-skylab/skylab-backend
 
 #### 2. Install Dependencies
 
-Ensure that you have installed and are using the **LTS Fermium** version of Node.js. If you have a different version of Node.js installed, you can make use of nvm for [windows](https://github.com/coreybutler/nvm-windows) or [macOS/unix/WSL](https://github.com/nvm-sh/nvm) to change it to LTS Fermium.
+Ensure that you have installed and are using the **LTS Fermium** version of Node.js. If you have a different version of Node.js installed, you can make use of nvm for [Windows](https://github.com/coreybutler/nvm-windows) or [macOS/unix/WSL](https://github.com/nvm-sh/nvm) to change it to LTS Fermium.
 
 ```
 cd skylab-backend
@@ -149,7 +181,7 @@ You can make use of another postgres user if you choose to do so in place of the
 
 If your postgres super user account is not password protected, use `...postgres@localhost...` instead of `...postgres:<password>@localhost...`.
 
-`JWT_SECRET` is used for user authentication and authorization via JSON web tokens. These tokens are cryptographically signed and contain verifiable user information in a standard format which we use to verify the identity of an entity making a request to the server. Unauthenticated and unauthorized users will be rejected with HTTP error `401` or `403` respectively.
+`JWT_SECRET` is used for user authentication and authorization via JSON web tokens. For development, this secret can take any value. We recommend a 32-digit random hex number which you can generate [here](https://www.browserling.com/tools/random-hex). These tokens are cryptographically signed and contain verifiable user information in a standard format which we use to verify the identity of an entity making a request to the server. Unauthenticated and unauthorized users will be rejected with HTTP error `401` or `403` respectively.
 
 #### 4. Run Migration
 
@@ -199,7 +231,7 @@ After migration is compelted, there are two ways to directly view and interact w
 ### PSQL
 1. Connect to psql as the postgres super user via the command `psql -U postgres`**(Windows)** or `sudo -u postgres psql`**(macOS)** and key in your postgres super user password if applicable.
 2. Connect to the development database via the command `\c skylab`
-3. Shut down psql after you are done via `\q`
+3. Shut down psql after you are done via the command `\q`
 
 ### Prisma Studio
 1. Boot up prisma studio via the command `npx prisma studio`
