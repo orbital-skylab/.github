@@ -93,19 +93,19 @@ Next, use the shortcut `Windows Key` + `s` to bring up the Windows search menu, 
 
 You should see the option to `Edit the system environmental variables` under **Control Panel** pop up in the search results. Click on it to bring up the **System Properties** menu.
 
-![Search](/profile/screenshots/search.jpg)
+![Search](/profile/images/search.jpg)
 
 At the bottom of this menu, you should see an `Environmental Variables...` button. Click on it to bring up the **Environmental Variables** menu.
 
-![System Properties](/profile/screenshots/system_properties.jpg)
+![System Properties](/profile/images/system_properties.jpg)
 
 In the bottom half of this menu, under **System Variables**, Select `Path` then click on the `Edit...` button below it to bring up the **Edit Environmental Variable** menu.
 
-![PATH](/profile/screenshots/system_variables.jpg)
+![PATH](/profile/images/system_variables.jpg)
 
 Click on the `New` button at the top right of this menu then paste the **address to the psql bin folder** that we copied earlier into the new input highlighted in blue.
 
-![Add](/profile/screenshots/new.jpg)
+![Add](/profile/images/new.jpg)
 
 Once completed, click on the `OK` button at the bottom of this menu, then restart your terminal and/or code editor for the change to the system environmental variables to take effect. If the changes are still not recognized, you can restart your computer.
 
@@ -220,17 +220,17 @@ The [Postman Desktop App](https://www.postman.com/) can be used to test backend 
 
 You can create a new **personal workspace** to contain all your requests to test for Skylab V2 by clicking on the `Create Workspace` button in the Postman Desktop App menu.
 
-![Menu](/profile/screenshots/menu.jpg)
+![Menu](/profile/images/menu.jpg)
 
-![Create Workspace](/profile/screenshots/create_workspace.jpg)
+![Create Workspace](/profile/images/create_workspace.jpg)
 
 You can then create a new **environment** for local development. You can name the environment anything that you like. In this example, we call it `Localhost`
 
-![Environments](/profile/screenshots/environment.jpg)
+![Environments](/profile/images/environment.jpg)
 
 In this new environment, you can add an environmental variable for the URL of the Skylab V2 api. In this example, we call this environmental variable `api_url`.
 
-![Environmental Variable](/profile/screenshots/environmental_variable.jpg)
+![Environmental Variable](/profile/images/environmental_variable.jpg)
 
 Ensure to save this new environment and variable with the shortcut `Ctrl` + `s`**(Windows)** or `cmd` + `s`**(macOS)**
 
@@ -240,10 +240,10 @@ We will be trying our two requests in this example. The first request is to seed
 
 Let's first create a new collection to contain the seeding request. For this example, we will call the new collection `Seed`
 
-![Collection](/profile/screenshots/collection.jpg)
+![Collection](/profile/images/collection.jpg)
 
 
-![Auth](/profile/screenshots/seed.jpg)
+![Auth](/profile/images/seed.jpg)
 
 We can now add our seeding request to this new `Seed` collection by clicking on the `Add a request` hyperlink. 
 
@@ -251,19 +251,19 @@ Before adding the request ensure to select the `Localhost` environment via the e
 
 The environmental variable `api_url` that we created earlier in the `Localhost` environment can be used in the address bar by encapsulating it in curly braces as follows: `{{api_url}}`
 
-![Seed Request](/profile/screenshots/seed_request.jpg)
+![Seed Request](/profile/images/seed_request.jpg)
 
 We can now press the `Send` button to begin seeding. It should finish in a minute or two.
 
 Next, we can move on to the login request. In this example, we will create another collection called `Auth` to house the login request by clicking on the `+` button in the collections menu.
 
-![New Collection](/profile/screenshots/new_collection.jpg)
+![New Collection](/profile/images/new_collection.jpg)
 
 We will then add the login request similar to the seeding request before.
 
 In Postman, you can add a request body by selecting the `Body` tab below the address bar, clicking on the `raw` radio button and then selecting the `JSON` option in the type selector on the right. Note that in Postman, JSON object keys **must be strings**.
 
-![New Collection](/profile/screenshots/auth_request.jpg)
+![New Collection](/profile/images/auth_request.jpg)
 
 **Note:** Postman requests can only be authenticated by our backend server if it is run in development environment (`npm run dev`). This is because in development environment, our cookies are **not** secure, which is necessary for usage with Postman. The routes which require authentication are specified in our [Backend Wiki](https://github.com/orbital-skylab/skylab-backend/wiki).
 
