@@ -294,6 +294,18 @@ After migration is compelted, there are two ways to directly view and interact w
 1. Boot up prisma studio via the command `npx prisma studio`
 2. By default, prisma studio can then be accessed at `localhost:5555`
 
+## How Authentication and Authorization Work
+
+We make use of [JSON Web Tokens](https://jwt.io/) and [HTTP cookies](https://developer.mozilla.org/en-US/docs/Web/HTTP/Cookies) for authentication and authorization in Skylab V2.
+
+The Skylab API is very extensive and there are some requests which require authentication or authorization. Authentication means that the host sending the request but be logged into the platform. Authorization means that the host sending the request must have a specific identity or role, depending on the authorization middleware that is securing that particular route.
+
+When users log in to the platform, the server will first verify the user's credentials. If verification is successful, a new JSON web token is generated with the user's account information (excluding password) as the signed payload. This token is then stored in a secure HTTP cookie which is sent back to the client in the login response. 
+This token will persist in the user's browser and be used to authenticate future requests. 
+
+As for authorization, there are several levels of permissions in Skylab V2 as mentioned earlier. These can be seen [here](https://github.com/orbital-skylab/skylab-backend/tree/staging/src/middleware). The gist of authorization is that the payload (containing account information) of the JSON web token in the HTTP cookie embedded in the request will be decrypted and verified against the permissions required for the route.
+
+
 ## Deployment on SoC VM
 
 The front and back end of Skylab V2 are deployed and running on SoC VM. When changes are made to either repository, the corresponding applications on the VM will need to be restarted.
