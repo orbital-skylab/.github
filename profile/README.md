@@ -193,12 +193,19 @@ If your postgres super user account is not password protected, use `...postgres@
 
 #### 4. Run Migration
 
-Run a migration to create the necessary tables in the development databases.
+Run a migration to create the necessary tables in the development database.
 
 ```
 npx prisma generate
 npx prisma migrate dev
 ```
+
+The database can also be reset at any time if you run into any issues/
+```
+npx prisma migrate reset
+```
+
+More information about migration with Prisma ORM can be found [here](https://www.prisma.io/docs/concepts/components/prisma-migrate)
 
 ## Booting up the Development Environment
 
@@ -303,7 +310,7 @@ The Skylab API is very extensive and there are some requests which require authe
 When users log in to the platform, the server will first verify the user's credentials. If verification is successful, a new JSON web token is generated with the user's account information (excluding password) as the signed payload. This token is then stored in a secure HTTP cookie which is sent back to the client in the login response. 
 This token will persist in the user's browser and be used to authenticate future requests. 
 
-As for authorization, there are several levels of permissions in Skylab V2 as mentioned earlier. These can be seen [here](https://github.com/orbital-skylab/skylab-backend/tree/staging/src/middleware). The gist of authorization is that the payload (containing account information) of the JSON web token in the HTTP cookie embedded in the request will be decrypted and verified against the permissions required for the route.
+As for authorization, there are several levels of permissions in Skylab V2 as mentioned earlier. These can be seen [here](https://github.com/orbital-skylab/skylab-backend/tree/staging/src/middleware). The gist of authorization is that the payload (containing account information) of the JSON web token in the HTTP cookie embedded in the request will be decrypted and verified against the permissions required for the route. The authorization required for each route is detailed in our [Backend Wiki Endpoints Documentation](https://github.com/orbital-skylab/skylab-backend/wiki)
 
 
 ## Deployment on SoC VM
