@@ -181,6 +181,8 @@ We have a `.env` file in the root of the `skylab backend` repository to contain 
 touch .env
 echo DATABASE_URL="postgresql://postgres:<your_postgres_super_user_password>@localhost:5432/skylab" >> .env 
 echo JWT_SECRET="<any_value>" >> .env
+echo ADMIN_PASSWORD="<your_chosen_password>"
+echo SALT_ROUNDS=<any_number>
 ```
 
 The format of the `DATABASE_URL` is `postgresql://<username>:<password>@<domain>:<port>/<database_name>`. 
@@ -207,6 +209,10 @@ npx prisma migrate reset
 
 More information about migration with Prisma ORM can be found [here](https://www.prisma.io/docs/concepts/components/prisma-migrate)
 
+## Seeding Mock Data
+
+Mock data can be seeded directly using the command `npx prisma db seed`. You can change the data that is seeded if you wish to do so by altering the files in `prisma/seed`
+
 ## Booting up the Development Environment
 
 Open two different terminals to start up the frontend and backend applications.
@@ -221,9 +227,9 @@ npm run dev
 
 The frontend application can be accessed at `localhost:3000` while the backend application can be accessed at `localhost:4000`.
 
-## Using Postman and Seeding Mock Data
+## Testing API with Postman
 
-The [Postman Desktop App](https://www.postman.com/) can be used to test backend routes as well as to seed mock data.
+The [Postman Desktop App](https://www.postman.com/) can be used to test backend routes
 
 You can create a new **personal workspace** to contain all your requests to test for Skylab V2 by clicking on the `Create Workspace` button in the Postman Desktop App menu.
 
@@ -245,30 +251,11 @@ Now we can move on to creating test requests. Postman allows us to create **coll
 
 We will be trying our two requests in this example. The first request is to seed mock data for our development database. The second request that we will want to test is the login request because this will embed the response with a verified **HTTP only cookie**, making our future requests authenticated. You can read more about our method of authentication [here]()**[Work in Progresss]**
 
-Let's first create a new collection to contain the seeding request. For this example, we will call the new collection `Seed`
-
-![Collection](/profile/images/collection.jpg)
-
-
-![Auth](/profile/images/seed.jpg)
-
-We can now add our seeding request to this new `Seed` collection by clicking on the `Add a request` hyperlink. 
-
-Before adding the request ensure to select the `Localhost` environment via the environment selector at the top right corner of the Postman Desktop App.
-
-The environmental variable `api_url` that we created earlier in the `Localhost` environment can be used in the address bar by encapsulating it in curly braces as follows: `{{api_url}}`
-
-![Seed Request](/profile/images/seed_request.jpg)
-
-We can now press the `Send` button to begin seeding. It should finish in a minute or two.
-
-Next, we can move on to the login request. In this example, we will create another collection called `Auth` to house the login request by clicking on the `+` button in the collections menu.
+Let's first create a new collection to contain the login request. For this example, we will call the new collection `Auth`
 
 ![New Collection](/profile/images/new_collection.jpg)
 
-We will then add the login request similar to the seeding request before.
-
-In Postman, you can add a request body by selecting the `Body` tab below the address bar, clicking on the `raw` radio button and then selecting the `JSON` option in the type selector on the right. Note that in Postman, JSON object keys **must be strings**.
+We will then add the login request. The request body can be added by selecting the `Body` tab below the address bar, clicking on the `raw` radio button and then selecting the `JSON` option in the type selector on the right. Note that in Postman, JSON object keys **must be strings**.
 
 ![New Collection](/profile/images/auth_request.jpg)
 
