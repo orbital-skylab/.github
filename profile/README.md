@@ -181,8 +181,8 @@ We have a `.env` file in the root of the `skylab backend` repository to contain 
 touch .env
 echo DATABASE_URL="postgresql://postgres:<your_postgres_super_user_password>@localhost:5432/skylab" >> .env 
 echo JWT_SECRET="<any_value>" >> .env
-echo ADMIN_PASSWORD="<your_chosen_password>"
-echo SALT_ROUNDS=<any_number>
+echo ADMIN_PASSWORD="<your_chosen_password>" >> .env
+echo SALT_ROUNDS=<any_number> >> .env
 ```
 
 The format of the `DATABASE_URL` is `postgresql://<username>:<password>@<domain>:<port>/<database_name>`. 
